@@ -1,0 +1,66 @@
+name: smartspend
+description: "A new Flutter project."
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0-216.1.beta
+
+dependencies:
+  cupertino_icons: ^1.0.8
+  dash_chat_2: ^0.0.21
+  flutter:
+    sdk: flutter
+
+  flutter_animate: ^4.5.2
+  flutter_native_splash: ^2.4.1
+  flutter_switch: ^0.3.2
+  get: ^4.6.6
+  iconsax: ^0.0.8
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/ss.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+
+  fonts:
+    - family: Anurati
+      fonts:
+        - asset: assets/fonts/Anurati-Regular.otf
+    - family: Bebas
+      fonts:
+        - asset: assets/fonts/BebasNeue-Regular.ttf
+    - family: Gupter
+      fonts:
+        - asset: assets/fonts/Gupter-Bold.ttf
+          weight: 700
+    - family: Lobster
+      fonts:
+        - asset: assets/fonts/Lobster-Regular.ttf
+    - family: Nerko
+      fonts:
+        - asset: assets/fonts/NerkoOne-Regular.ttf
+    - family: Playfair
+      fonts:
+        - asset: assets/fonts/PlayfairDisplay-VariableFont_wght.ttf
+        - asset: assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf
+          style: italic
+    - family: Protest
+      fonts:
+        - asset: assets/fonts/ProtestGuerrilla-Regular.ttf
