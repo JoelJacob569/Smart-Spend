@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smartspend/screens/loginscreens/welcome.dart';
 import 'package:smartspend/screens/mainscreens/home.dart';
 import 'package:smartspend/screens/otherscreens/about.dart';
 import 'package:smartspend/screens/otherscreens/history.dart';
@@ -21,6 +23,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final dark = SHelperFunctions.isDarkMode(context);
     final size = MediaQuery.of(context).size;
+
+    Future<void> logout() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('isLoggedIn', false);
+
+      Get.offAll(() => const Welcompage());
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('Smart Spend')),
@@ -91,7 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               leading: const Icon(Iconsax.logout),
               title: const Text('Logout'),
-              onTap: () {},
+              onTap: () {
+                logout();
+              },
             ),
             const Divider(),
             ListTile(
