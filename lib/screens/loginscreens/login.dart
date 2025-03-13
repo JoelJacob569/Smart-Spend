@@ -123,6 +123,8 @@
 //   }
 // }
 
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -162,13 +164,17 @@ class _LoginpageState extends State<Loginpage> {
       await prefs.setBool('isLoggedIn', true);
 
       Get.snackbar("Success", "Login Successful!",
-          snackPosition: SnackPosition.TOP);
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.green,
+          colorText: Colors.white);
 
       // Navigate to Home Page and remove login page from stack
       Get.offAll(() => const Mainhome());
     } on FirebaseAuthException catch (e) {
       Get.snackbar("Error", e.message ?? "Login Failed",
-          snackPosition: SnackPosition.BOTTOM);
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.red,
+          colorText: Colors.white);
     } finally {
       setState(() => isLoading = false);
     }
@@ -197,7 +203,7 @@ class _LoginpageState extends State<Loginpage> {
               height: size.height * 0.65,
               width: size.width * 0.89,
               decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.grey.withValues(alpha: 0.5),
                 borderRadius: BorderRadius.circular(SSizes.borderRadiusxl),
               ),
               child: buildlogin(),

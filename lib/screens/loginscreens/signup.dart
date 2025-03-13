@@ -159,12 +159,16 @@ class _SignuppageState extends State<Signuppage> {
       });
 
       Get.snackbar("Success", "Signup Successful!",
-          backgroundColor: Colors.green, colorText: Colors.white);
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.green,
+          colorText: Colors.white);
 
       Get.off(() => const Loginpage());
     } on FirebaseAuthException catch (e) {
       Get.snackbar("Error", e.message ?? "Signup failed",
-          backgroundColor: Colors.red, colorText: Colors.white);
+          snackPosition: SnackPosition.TOP,
+          backgroundColor: Colors.red,
+          colorText: Colors.white);
     }
   }
 

@@ -26,10 +26,10 @@ class _ChatBotState extends State<ChatBot> {
       body: DashChat(
           currentUser: currentUser,
           //typingUsers: typingUsers,
-          messageOptions: const MessageOptions(
+          messageOptions: MessageOptions(
             currentUserContainerColor: SColors.secondary,
             containerColor: SColors.primary,
-            textColor: SColors.textWhite,
+            textColor: dark ? SColors.black : SColors.white,
             showTime: true,
           ),
           inputOptions: const InputOptions(
