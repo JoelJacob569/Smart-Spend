@@ -57,33 +57,36 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            DrawerHeader(
-                decoration: BoxDecoration(
-                    color: dark ? Colors.blue : Colors.blueAccent),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipOval(
-                      child: Container(
-                        height: size.height * 0.1,
-                        width: size.height * 0.1,
-                        color: Colors.green,
+            SizedBox(
+              height: size.height * 0.22,
+              child: DrawerHeader(
+                  decoration: BoxDecoration(
+                      color: dark ? Colors.blue : Colors.blueAccent),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipOval(
+                        child: Container(
+                          height: size.height * 0.1,
+                          width: size.height * 0.1,
+                          color: Colors.green,
+                        ),
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text('User Name'),
-                        IconButton(
-                          icon: const Icon(Icons.edit),
-                          onPressed: () {
-                            Get.to(() => const Profileedit());
-                          },
-                        )
-                      ],
-                    )
-                  ],
-                )),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text('User Name'),
+                          IconButton(
+                            icon: const Icon(Icons.edit),
+                            onPressed: () {
+                              Get.to(() => const Profileedit());
+                            },
+                          )
+                        ],
+                      )
+                    ],
+                  )),
+            ),
             ListTile(
               leading: const Icon(Iconsax.setting),
               title: const Text('Settings'),

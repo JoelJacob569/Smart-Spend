@@ -15,7 +15,7 @@ class AboutPage extends StatelessWidget {
         iconTheme: IconThemeData(color: dark ? Colors.white : Colors.black),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -32,12 +32,6 @@ class AboutPage extends StatelessWidget {
               style: TextStyle(
                 fontSize: SSizes.lg,
                 fontWeight: FontWeight.bold,
-              ),
-            ),
-            const Text(
-              STexts.sslogan,
-              style: TextStyle(
-                fontSize: SSizes.fontSizeLg,
               ),
             ),
             const Text(
