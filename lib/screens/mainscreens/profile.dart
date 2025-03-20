@@ -96,6 +96,7 @@ import 'package:smartspend/screens/otherscreens/profileedit.dart';
 import 'package:smartspend/utils/constants/sizes.dart';
 import 'package:smartspend/utils/custom/container.dart';
 import 'package:get/get.dart';
+import 'package:smartspend/utils/custom/gesbutton.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -157,13 +158,13 @@ class _ProfilePageState extends State<ProfilePage> {
             left: 20,
             right: 20,
             child: SizedBox(
-              height: 150, // Adjusted height for horizontal list
+              height: 150,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal, // Horizontal scrolling
+                scrollDirection: Axis.horizontal,
                 itemCount: members.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    width: 120, // Width for each item
+                    width: 120,
                     margin: const EdgeInsets.symmetric(horizontal: 8),
                     child: Card(
                       child: Column(
@@ -189,22 +190,40 @@ class _ProfilePageState extends State<ProfilePage> {
             top: 450,
             left: 20,
             right: 20,
-            child: ElevatedButton(
-              onPressed: () {
-                Get.to(() => const Badgesedit());
-              },
-              child: const Text('badges'),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Gesbutton(
+                onTap: () {
+                  Get.to(() => const Badgesedit());
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Badges'),
+                    Icon(Icons.arrow_forward_ios, size: 15),
+                  ],
+                ),
+              ),
             ),
           ),
           Positioned(
             top: 522,
             left: 20,
             right: 20,
-            child: ElevatedButton(
-              onPressed: () {
-                Get.to(() => const Profileedit());
-              },
-              child: const Text('edit profile'),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Gesbutton(
+                onTap: () {
+                  Get.to(() => const Profileedit());
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Edit profile'),
+                    Icon(Icons.arrow_forward_ios, size: 15),
+                  ],
+                ),
+              ),
             ),
           ),
         ],
