@@ -82,10 +82,9 @@ class _ChatBotState extends State<ChatBot> {
           currentUserContainerColor: SColors.secondary,
           containerColor: SColors.primary,
           textColor: dark ? SColors.white : SColors.black,
-          showTime: true, // ✅ Ensure timestamp is displayed
-          timeTextColor:
-              dark ? Colors.white70 : Colors.black54, // ✅ Corrected parameter
-          timeFormat: DateFormat('hh:mm a'), // ✅ Correctly format AM/PM
+          showTime: true,
+          timeTextColor: dark ? Colors.white70 : Colors.black54,
+          timeFormat: DateFormat('hh:mm a'),
         ),
         inputOptions: InputOptions(
           alwaysShowSend: true,
@@ -113,7 +112,7 @@ class _ChatBotState extends State<ChatBot> {
     final updatedMessage = ChatMessage(
       text: m.text,
       user: m.user,
-      createdAt: DateTime.now(), // ✅ DashChat will format the time correctly
+      createdAt: DateTime.now(),
     );
 
     setState(() {
