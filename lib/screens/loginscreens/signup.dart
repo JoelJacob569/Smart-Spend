@@ -136,7 +136,6 @@ class Signuppage extends StatefulWidget {
 class _SignuppageState extends State<Signuppage> {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
-  final phoneController = TextEditingController();
   final passwordController = TextEditingController();
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -154,7 +153,6 @@ class _SignuppageState extends State<Signuppage> {
       await _firestore.collection('users').doc(userCredential.user!.uid).set({
         'name': nameController.text.trim(),
         'email': emailController.text.trim(),
-        'phone': phoneController.text.trim(),
         'uid': userCredential.user!.uid,
       });
 
@@ -229,11 +227,6 @@ class _SignuppageState extends State<Signuppage> {
           TextFormField(
             controller: emailController,
             decoration: const InputDecoration(labelText: STexts.email),
-          ),
-          const SizedBox(height: SSizes.ssm),
-          TextFormField(
-            controller: phoneController,
-            decoration: const InputDecoration(labelText: STexts.phoneNo),
           ),
           const SizedBox(height: SSizes.ssm),
           PasswordTextField(

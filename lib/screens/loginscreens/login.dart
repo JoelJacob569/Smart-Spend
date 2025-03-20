@@ -135,6 +135,7 @@ import 'package:smartspend/screens/mainscreens/mainhome.dart';
 import 'package:smartspend/utils/constants/image_strings.dart';
 import 'package:smartspend/utils/constants/sizes.dart';
 import 'package:smartspend/utils/constants/text_strings.dart';
+import 'package:smartspend/utils/custom/google_auth.dart';
 import 'package:smartspend/utils/custom/passtext.dart';
 import 'package:smartspend/utils/validators/validation.dart';
 
@@ -252,10 +253,15 @@ class _LoginpageState extends State<Loginpage> {
             children: [
               TextButton(
                 onPressed: () => Get.to(() => const Forgotpass()),
-                child: const Text(STexts.forgotPassword),
+                child: const Text(
+                  STexts.forgotPassword,
+                  style: TextStyle(color: Colors.red),
+                ),
               ),
             ],
           ),
+          const SizedBox(height: SSizes.ssm),
+          const SocalSignUp(),
           const SizedBox(height: SSizes.ssm),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
