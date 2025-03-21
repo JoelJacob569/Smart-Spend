@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smartspend/screens/otherscreens/badges.dart';
+//import 'package:smartspend/screens/otherscreens/badges.dart';
 import 'package:smartspend/screens/otherscreens/chat.dart';
 import 'package:smartspend/screens/otherscreens/expensegraph.dart';
 import 'package:smartspend/utils/constants/colors.dart';
 import 'package:smartspend/utils/constants/image_strings.dart';
 import 'package:smartspend/utils/constants/sizes.dart';
 import 'package:smartspend/utils/custom/container.dart';
-import 'package:smartspend/utils/custom/progress.dart';
+//import 'package:smartspend/utils/custom/progress.dart';
 
 class HompePage2 extends StatefulWidget {
   const HompePage2({super.key});
@@ -21,8 +21,8 @@ class _HompePage2State extends State<HompePage2> {
   final amountcontroller = TextEditingController();
   final incomecontroller = TextEditingController();
   String goal = '';
-  double amount = 0.0;
-  double income = 0.0;
+  int amount = 0;
+  int income = 0;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -94,17 +94,17 @@ class _HompePage2State extends State<HompePage2> {
                   child: Customcontainer(
                     height: size.height * 0.23,
                     width: size.width * 0.45,
-                    child: const Padding(
-                      padding: EdgeInsets.all(SSizes.sm),
+                    child: Padding(
+                      padding: const EdgeInsets.all(SSizes.sm),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Balance Income (BI)',
                             style: TextStyle(fontSize: SSizes.lg),
                           ),
-                          SizedBox(height: SSizes.ssm),
-                          Row(
+                          const SizedBox(height: SSizes.ssm),
+                          const Row(
                             children: [
                               Icon(
                                 Icons.currency_rupee,
@@ -118,19 +118,19 @@ class _HompePage2State extends State<HompePage2> {
                               ),
                             ],
                           ),
-                          SizedBox(height: SSizes.ssm),
-                          Text(
+                          const SizedBox(height: SSizes.ssm),
+                          const Text(
                             'Monthly Income',
                             style: TextStyle(fontSize: SSizes.fontSizeLg),
                           ),
-                          SizedBox(width: SSizes.ssm),
+                          const SizedBox(width: SSizes.ssm),
                           Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.currency_rupee,
                                 size: SSizes.iconMd,
                               ),
-                              Text('Income of the month')
+                              Text(income.toString()),
                             ],
                           ),
                         ],
@@ -150,23 +150,23 @@ class _HompePage2State extends State<HompePage2> {
               child: Customcontainer(
                 height: size.height * 0.23,
                 width: size.width * 0.4,
-                child: const Padding(
-                  padding: EdgeInsets.all(SSizes.sm),
+                child: Padding(
+                  padding: const EdgeInsets.all(SSizes.sm),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Goals',
                         style: TextStyle(fontSize: SSizes.lg),
                       ),
-                      SizedBox(height: SSizes.ssm),
+                      const SizedBox(height: SSizes.ssm),
                       Text(
-                        'Goal :',
-                        style: TextStyle(fontSize: SSizes.lg),
+                        'Goal : $goal',
+                        style: const TextStyle(fontSize: SSizes.lg),
                       ),
                       Text(
-                        'Goal Amount :',
-                        style: TextStyle(fontSize: SSizes.lg),
+                        'Goal Amount : $amount',
+                        style: const TextStyle(fontSize: SSizes.lg),
                       ),
                     ],
                   ),
@@ -191,35 +191,35 @@ class _HompePage2State extends State<HompePage2> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(SSizes.sm),
-            child: GestureDetector(
-              onTap: () {
-                Get.to(() => const Badgesedit());
-              },
-              child: Customcontainer(
-                height: size.height * 0.1,
-                width: size.width * 0.4,
-                child: const Padding(
-                  padding: EdgeInsets.all(SSizes.sm),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Badge', style: TextStyle(fontSize: SSizes.lg)),
-                          Icon(Icons.military_tech),
-                        ],
-                      ),
-                      SizedBox(height: SSizes.ssm),
-                      CustomProgressIndicator(),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(SSizes.sm),
+          //   child: GestureDetector(
+          //     onTap: () {
+          //       Get.to(() => const Badgesedit());
+          //     },
+          //     child: Customcontainer(
+          //       height: size.height * 0.1,
+          //       width: size.width * 0.4,
+          //       child: const Padding(
+          //         padding: EdgeInsets.all(SSizes.sm),
+          //         child: Column(
+          //           crossAxisAlignment: CrossAxisAlignment.start,
+          //           children: [
+          //             Row(
+          //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //               children: [
+          //                 Text('Badge', style: TextStyle(fontSize: SSizes.lg)),
+          //                 Icon(Icons.military_tech),
+          //               ],
+          //             ),
+          //             SizedBox(height: SSizes.ssm),
+          //             CustomProgressIndicator(),
+          //           ],
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -267,8 +267,7 @@ class _HompePage2State extends State<HompePage2> {
                       onPressed: () {
                         setState(() {
                           goal = goalcontroller.text;
-                          amount =
-                              double.tryParse(amountcontroller.text) ?? 0.0;
+                          amount = int.tryParse(amountcontroller.text) ?? 0;
                         });
                         Navigator.of(context).pop();
                       },
@@ -306,8 +305,7 @@ class _HompePage2State extends State<HompePage2> {
                   ElevatedButton(
                       onPressed: () {
                         setState(() {
-                          income =
-                              double.tryParse(incomecontroller.text) ?? 0.0;
+                          income = int.tryParse(incomecontroller.text) ?? 0;
                         });
                         Navigator.of(context).pop();
                       },
