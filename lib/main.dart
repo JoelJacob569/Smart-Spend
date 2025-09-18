@@ -50,7 +50,7 @@ class _AppState extends State<App> {
       themeMode: ThemeMode.system,
       theme: SAppTheme.lightTheme,
       darkTheme: SAppTheme.darkTheme,
-      debugShowCheckedModeBanner: false,
+      //debugShowCheckedModeBanner: false,
       // initialBinding: GeneralBindings(),
       home: isLoggedIn ? const Mainhome() : const Welcompage(),
     );
